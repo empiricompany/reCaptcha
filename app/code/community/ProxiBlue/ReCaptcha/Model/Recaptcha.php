@@ -159,7 +159,9 @@ class ProxiBlue_ReCaptcha_Model_Recaptcha extends Mage_Captcha_Model_Zend implem
     public function getUrl()
     {
         return
-            ProxiBlue_ReCaptcha_Helper_Data::RECAPTCHA_API_SERVER . ProxiBlue_ReCaptcha_Helper_Data::RECAPTCHA_API_PATH
+            ProxiBlue_ReCaptcha_Helper_Data::RECAPTCHA_API_SERVER 
+            . '/'
+            . ProxiBlue_ReCaptcha_Helper_Data::RECAPTCHA_API_PATH
             . '/challenge?k=' . $this->_public_key;
     }
 
