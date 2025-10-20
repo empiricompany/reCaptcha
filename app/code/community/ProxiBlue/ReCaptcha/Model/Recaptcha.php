@@ -111,7 +111,10 @@ class ProxiBlue_ReCaptcha_Model_Recaptcha extends Mage_Captcha_Model_Zend implem
         try {
             $request = Mage::app()->getRequest();
             $this->generate();
-            $this->_debug(print_r($request->getParams(),true),null,'recapctha.log');
+             $params = $request->getParams();
+             unset($params['password']);
+             unset($params['confirmation']);
+             $this->_debug(print_r($params,true),null,'recapctha.log');
             // is this the new 'I am not a robot'?
             if($request->getParam('gcr')) {
                 $request->setParam('g-recaptcha-response', $request->getParam('gcr'));
